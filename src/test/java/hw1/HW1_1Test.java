@@ -1,4 +1,4 @@
-package HW1;
+package hw1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +18,6 @@ public class HW1_1Test {
     public void HW1_1() {
         System.out.println();
         HW1_1 hw1_1 = new HW1_1();
-        assertEquals(110, hw1_1.PrintSum(), "Not equals");
+        assertEquals(110, hw1_1.printSum(), "Incorrect result of sum");
     }
 }

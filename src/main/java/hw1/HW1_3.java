@@ -1,4 +1,4 @@
-package HW1;
+package hw1;
 
 /*
 3.	Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers. (Create a separate method for each operation)
@@ -13,25 +13,29 @@ Expected Output :
 125 mod 24 = 5
  */
 public class HW1_3 {
-    public String getText1(String a, String b, String c) {
-        return a + " + " + b + " = " + c;
+    public int getSum(int a, int b) {
+        return a + b;
     }
-    public String getText2(String a, String b, String c) {
+
+    public String getSubtract(String a, String b, String c) {
         return a + " - " + b + " = " + c;
     }
-    public String getText3(String a, String b, String c) {
+
+    public String getMultiply(String a, String b, String c) {
         return a + " * " + b + " = " + c;
     }
-    public String getText4(String a, String b, String c) {
+
+    public String getDivide(String a, String b, String c) {
         return a + " / " + b + " = " + c;
     }
-    public String getText5(String a, String b, String c) {
+
+    public String getMod(String a, String b, String c) {
         return a + " % " + b + " = " + c;
     }
 
-    static String sum() {
+    static int sum() {
         System.out.println("125 + 24 = 149");
-        return "125 + 24 = 149";
+        return 125 + 24;
     }
 
     static String subtract() {

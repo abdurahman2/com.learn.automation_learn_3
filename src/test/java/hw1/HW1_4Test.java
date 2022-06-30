@@ -1,4 +1,4 @@
-package HW1;
+package hw1;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +12,8 @@ Expected Output : 100
  */
 public class HW1_4Test {
     @Test
-public void HW1_4(){
+    public void hw1_4() {
         HW1_4 hw1_4 = new HW1_4();
-        assertEquals(100, hw1_4.PrintSumArray(), "Not equals");
+        assertEquals(100, hw1_4.printSumArray(), "Incorrect result of sum values");
     }
 }
