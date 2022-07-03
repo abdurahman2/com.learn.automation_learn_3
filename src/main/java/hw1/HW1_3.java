@@ -14,47 +14,32 @@ Expected Output :
  */
 public class HW1_3 {
     public int getSum(int a, int b) {
-        return a + b;
+        int c = a + b;
+        System.out.println(a + " + " + b + " = " + c);
+        return c;
     }
 
-    public String getSubtract(String a, String b, String c) {
-        return a + " - " + b + " = " + c;
+    public int getSubtract(int a, int b) {
+        int c = a - b;
+        System.out.println(a + " - " + b + " = " + c);
+        return c;
     }
 
-    public String getMultiply(String a, String b, String c) {
-        return a + " * " + b + " = " + c;
+    public int getMultiply(int a, int b) {
+        int c = a * b;
+        System.out.println(a + " * " + b + " = " + c);
+        return c;
     }
 
-    public String getDivide(String a, String b, String c) {
-        return a + " / " + b + " = " + c;
+    public int getDivide(int a, int b) {
+        int c = a / b;
+        System.out.println(a + " / " + b + " = " + c);
+        return c;
     }
 
-    public String getMod(String a, String b, String c) {
-        return a + " % " + b + " = " + c;
-    }
-
-    static int sum() {
-        System.out.println("125 + 24 = 149");
-        return 125 + 24;
-    }
-
-    static String subtract() {
-        System.out.println("125 - 24 = 101");
-        return "125 - 24 = 101";
-    }
-
-    static String multiply() {
-        System.out.println("125 * 24 = 3000");
-        return "125 * 24 = 3000";
-    }
-
-    static String divide() {
-        System.out.println("124 / 24 = 5");
-        return "125 / 24 = 5";
-    }
-
-    static String mod() {
-        System.out.println("125 % 24 = 5");
-        return "125 % 24 = 5";
+    public int getMod(int a, int b) {
+        int c = a % b;
+        System.out.println(a + " % " + b + " = " + c);
+        return c;
     }
 }

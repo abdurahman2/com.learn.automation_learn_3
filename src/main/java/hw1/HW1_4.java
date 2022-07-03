@@ -7,8 +7,7 @@ Test Data:
 Expected Output : 100
  */
 public class HW1_4 {
-    public int printSumArray() {
-        int[] numbers = {5, 6, 7, 12, -5, 32, 43};
+    public int printSumArray(int[] numbers) {
         int sum = 0;
         for (int i = 0; i < numbers.length; i++) {
             sum = sum + numbers[i];
