@@ -12,8 +12,3 @@ public class SomethingIsWrongTest {
         assertEquals(2000, myRect.getArea(), "Mistakes in calculation of area");
     }
 }
-//        myRect.width = 40;
-//        myRect.height = 50;
-//        System.out.println("myRect's area is " + myRect.area());
-//}
-//}
