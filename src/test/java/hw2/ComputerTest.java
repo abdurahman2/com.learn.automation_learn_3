@@ -23,6 +23,7 @@ class ComputerTest {
         assertEquals(17, computer.getScreenSize(), "ScreenSize for com2 is not equals");
         assertEquals(8, computer.getNumberOfCores(), "NumberOfCores for com2 is not equals");
     }
+
     @Test
     @DisplayName("Check com3")
     public void comp3() {
