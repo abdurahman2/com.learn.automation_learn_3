@@ -10,13 +10,15 @@ The concatenated string with replacements: H Exercises and ython Exercises
 
  */
 public class Task1 {
-    public String conctenate() {
+    String str1 = "PHP Exercises and ";
+    String str2 = "Python Exercises";
 
-
-        String a = "PHP Exercises and ";
-        String b = "Python Exercises";
-        String c = a + b;
-        String replacements = c.replace("P", "");
-        return replacements;
+    //    static public String concatenate(String str1, String str2) {
+//        return concatenate(str1,str2).replace("P", "").replace("p", "");
+//    }
+    static public String concatenate() {
+        String str1 = "PHP Exercises and ";
+        String str2 = "Python Exercises";
+        return str1.concat(str2).replace("P", "").replace("p", "");
     }
 }

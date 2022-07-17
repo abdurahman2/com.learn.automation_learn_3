@@ -9,9 +9,7 @@ class Task1_Test {
     @Test
     @DisplayName("The concatenated string with replacements")
     public void checkReplace() {
-        Task1 con = new Task1();
-        con.conctenate();
         String result = "H Exercises and ython Exercises";
-        assertEquals(result, con.conctenate(), "Errors in replacements");
+        assertEquals(result, Task1.concatenate(), "Errors in replacements");
     }
 }
