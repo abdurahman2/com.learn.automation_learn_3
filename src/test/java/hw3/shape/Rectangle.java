@@ -13,6 +13,6 @@ public class Rectangle extends Rectangular {
     @Override
     public void getSquare() {
         int c = a * b;
-        System.out.println("площадь прямоугольника" + c);
+        System.out.println("площадь прямоугольника - " + c);
     }
 }
