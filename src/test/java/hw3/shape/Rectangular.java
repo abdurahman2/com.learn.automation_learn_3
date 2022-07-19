@@ -1,6 +1,6 @@
 package hw3.shape;
 
-public class Rectangular implements Shape {
+public abstract class Rectangular implements Shape {
 
     private int a;
 

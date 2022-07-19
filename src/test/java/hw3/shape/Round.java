@@ -1,6 +1,6 @@
 package hw3.shape;
 
-public class Round implements Shape {
+public abstract class Round implements Shape {
 
     private double bigRadius;
     private double smallRadius;

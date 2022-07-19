@@ -48,6 +48,7 @@ public class Vector5 {
         }
         return vectorList;
     }
+
     @Override
     public String toString() {
         return "x=" + x + " y=" + y + " z=" + z + "\n";
