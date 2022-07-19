@@ -9,8 +9,9 @@ public class Circle extends Round {
     }
 
     @Override
-    public void getSquare() {
+    public double getSquare() {
         double c = Math.PI * radius * radius;
         System.out.println("площадь круга - " + c);
+        return c;
     }
 }

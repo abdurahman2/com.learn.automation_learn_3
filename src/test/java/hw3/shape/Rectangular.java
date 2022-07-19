@@ -12,8 +12,9 @@ public abstract class Rectangular implements Shape {
     }
 
     @Override
-    public void getSquare() {
+    public double getSquare() {
         int c = a * a;
         System.out.println("площадь квадрата - " + c);
+        return c;
     }
 }

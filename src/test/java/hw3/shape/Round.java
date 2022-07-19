@@ -14,8 +14,9 @@ public abstract class Round implements Shape {
     }
 
     @Override
-    public void getSquare() {
+    public double getSquare() {
         double c = Math.PI * bigRadius * smallRadius;
         System.out.println("площадь овала - " + c);
+        return c;
     }
 }

@@ -11,8 +11,9 @@ public class Rectangle extends Rectangular {
     }
 
     @Override
-    public void getSquare() {
+    public double getSquare() {
         int c = a * b;
         System.out.println("площадь прямоугольника - " + c);
+        return c;
     }
 }
