@@ -11,7 +11,7 @@ The concatenated string with replacements: H Exercises and ython Exercises
  */
 public class Task1 {
 
-    public static String concatenate(String str1, String str2) {
+    public static String concatenateAndRemovePFromTwoStrings(String str1, String str2) {
         return str1.concat(str2).replace("P", "").replace("p", "");
     }
 }

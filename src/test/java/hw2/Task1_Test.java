@@ -10,6 +10,6 @@ class Task1_Test {
     @DisplayName("The concatenated string with replacements")
     public void checkReplace() {
         String result = "H Exercises and ython Exercises";
-        assertEquals(result, Task1.concatenate("PHP Exercises and ", "Python Exercises"), "Errors in replacements");
+        assertEquals(result, Task1.concatenateAndRemovePFromTwoStrings("PHP Exercises and ", "Python Exercises"), "Errors in replacements");
     }
 }
