@@ -1,19 +1,15 @@
 package hw3.shape;
 
-public abstract class Rectangular implements Shape {
+public class Square extends Rectangular {
+    private double a;
 
-    private int a;
-
-    public Rectangular(int a) {
+    public Square(double a) {
         this.a = a;
-    }
-
-    public Rectangular() {
     }
 
     @Override
     public double getSquare() {
-        int c = a * a;
+        double c = a * a;
         System.out.println("площадь квадрата - " + c);
         return c;
     }

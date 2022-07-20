@@ -13,7 +13,6 @@ public abstract class Round implements Shape {
     public Round() {
     }
 
-    @Override
     public double getSquare() {
         double c = Math.PI * bigRadius * smallRadius;
         System.out.println("площадь овала - " + c);
