@@ -37,7 +37,7 @@ public class Vector5 {
         for (int i = 0; i < COUNT_LIST; i++) {
             vectorList.add(Vector5.createRandomVector());
         }
-        return vectorList;
+        return listRandomVector(COUNT_LIST);
     }
 
     public static List<Vector5> listRandomVector(int size) {
@@ -45,11 +45,16 @@ public class Vector5 {
         for (int i = 0; i < size; i++) {
             vectorList.add(createRandomVector());
         }
-        return listRandomVector(COUNT_LIST);
+        return vectorList;
     }
 
     @Override
     public String toString() {
         return "x=" + x + " y=" + y + " z=" + z + "\n";
+    }
+
+    public static void main(String[] args) {
+        System.out.println(listRandomVector());
+        System.out.println(listRandomVector(5));
     }
 }
