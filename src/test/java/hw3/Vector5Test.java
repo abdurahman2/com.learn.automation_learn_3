@@ -24,4 +24,9 @@ class Vector5Test {
         System.out.println(asd.toString());
     }
 
+    @Test
+    public void checkRandomList() {
+        assertEquals(2, Vector5.listRandomVector().size(), "Size of vectors not equals");
+    }
+
 }

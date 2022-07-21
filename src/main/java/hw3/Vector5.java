@@ -24,6 +24,11 @@ public class Vector5 {
         return (vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z);
     }
 
+    static double scalarMulti() {
+        List<Vector5> vectorList2 = listRandomVector();
+        return scalarMulti(vectorList2.get(0), vectorList2.get(1));
+    }
+
     public static Vector5 createRandomVector() {
         Random random = new Random();
         double x = Math.random() * 10;
@@ -33,10 +38,6 @@ public class Vector5 {
     }
 
     public static List<Vector5> listRandomVector() {
-        List<Vector5> vectorList = new ArrayList<>();
-        for (int i = 0; i < COUNT_LIST; i++) {
-            vectorList.add(Vector5.createRandomVector());
-        }
         return listRandomVector(COUNT_LIST);
     }
 
@@ -51,10 +52,5 @@ public class Vector5 {
     @Override
     public String toString() {
         return "x=" + x + " y=" + y + " z=" + z + "\n";
-    }
-
-    public static void main(String[] args) {
-        System.out.println(listRandomVector());
-        System.out.println(listRandomVector(5));
     }
 }
