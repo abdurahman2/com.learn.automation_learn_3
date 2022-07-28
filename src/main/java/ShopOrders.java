@@ -12,8 +12,8 @@ public class ShopOrders {
         orders.add("order4");
         orders.add("order5");
 
-        Set treeSet = new TreeSet(orders);
-        Set hashSet = new HashSet(orders);
+        Set<String> treeSet = new TreeSet<>(orders);
+        Set <String> hashSet = new HashSet<>(orders);
         System.out.println("hashSet" + hashSet);
         System.out.println("treeset" + treeSet);
 
@@ -26,8 +26,8 @@ public class ShopOrders {
         orders1[5] = "Order4";
         orders1[6] = "Order5";
 
-        HashSet orderHashSet = new HashSet(Arrays.asList(orders1));
-        TreeSet orderTreeSet = new TreeSet(Arrays.asList(orders1));
+        HashSet<String> orderHashSet = new HashSet<>(Arrays.asList(orders1));
+        TreeSet<String> orderTreeSet = new TreeSet<>(Arrays.asList(orders1));
         System.out.println("hashSet" + orderHashSet);
         System.out.println("treeset" + orderTreeSet);
     }
