@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ReversTest {
+public class SortedTest {
 
     @Test
-    public void keysEqualsValues() throws Exception {
+    public void keysEqualsValues() {
         List<Integer> keys = new ArrayList<>();
         List<String> values = new ArrayList<>();
         keys.add(1);
@@ -18,11 +18,11 @@ public class ReversTest {
         values.add("b");
         values.add("c");
         values.add("d");
-        Revers.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        Sorted.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
-    public void keysMoreThenValues() {
+    public void keysMoreThanValues() {
         List<Integer> keys = new ArrayList<>();
         List<String> values = new ArrayList<>();
         keys.add(1);
@@ -31,11 +31,11 @@ public class ReversTest {
         keys.add(4);
         values.add("c");
         values.add("d");
-        Revers.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        Sorted.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
-    public void valuesMoreThenKeys() {
+    public void valuesMoreThanKeys() {
         List<Integer> keys = new ArrayList<>();
         List<String> values = new ArrayList<>();
         keys.add(1);
@@ -44,33 +44,33 @@ public class ReversTest {
         values.add("b");
         values.add("c");
         values.add("d");
-        Revers.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        Sorted.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
-    public void keysEqualsValuesException() throws Exception {
+    public void keysEqualsValuesException() {
         List<Integer> keys = Arrays.asList(1, 2, 3);
         List<String> values = Arrays.asList("a", "b", "c");
-        Revers.createMapOption2(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        Sorted.createMapOption2(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
-    public void keysMoreThenValuesException() {
+    public void keysMoreThanValuesException() {
         List<Integer> keys = Arrays.asList(1, 2);
         List<String> values = Arrays.asList("a", "b", "c");
         try {
-            Revers.createMapOption2(keys, values);
+            Sorted.createMapOption2(keys, values);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void valuesMoreThenKeysException() {
+    public void valuesMoreThanKeysException() {
         List<Integer> keys = Arrays.asList(1, 2, 3);
         List<String> values = Arrays.asList("a", "b");
         try {
-            Revers.createMapOption2(keys, values);
+            Sorted.createMapOption2(keys, values);
         } catch (Exception e) {
             e.printStackTrace();
         }

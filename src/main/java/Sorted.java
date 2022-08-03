@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Revers {
+public class Sorted {
 
     public static <K, V> Map<K, V> createMapOption1(List<K> keys, List<V> values) {
         Map<K, V> map = new HashMap<>();
@@ -14,17 +14,16 @@ public class Revers {
         return map;
     }
 
-    public static <K, V> Map<K, V> createMapOption2(List<K> keys, List<V> values) throws Exception {
+    public static <K, V> Map<K, V> createMapOption2(List<K> keys, List<V> values) {
         Map<K, V> map = new HashMap<>();
         if (keys.size() != values.size()) {
             String exceptionMessage = keys.size() > values.size() ?
                     "Value is not enough for the Map" :
                     "Key is not enough for the Map";
-            throw new Exception(exceptionMessage);
+            throw new IndexOutOfBoundsException(exceptionMessage);
         }
         for (K k : keys) {
-            int index = keys.indexOf(k);
-            map.put(k, values.get(index));
+            map.put(k, values.get(keys.indexOf(k)));
         }
         return map;
     }
