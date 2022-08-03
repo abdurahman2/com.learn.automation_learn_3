@@ -8,9 +8,9 @@ public class ShopOrders {
         orders.add("order1");
         orders.add("order2");
         orders.add("order2");
-        orders.add("order3");
-        orders.add("order4");
-        orders.add("order5");
+
+
+
 
         Set<String> treeSet = new TreeSet<>(orders);
         Set <String> hashSet = new HashSet<>(orders);
