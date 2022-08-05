@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SortedTest {
+public class MapGeneratorTest {
 
     @Test
     public void keysEqualsValues() {
@@ -18,7 +18,7 @@ public class SortedTest {
         values.add("b");
         values.add("c");
         values.add("d");
-        Sorted.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        MapGenerator.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class SortedTest {
         keys.add(4);
         values.add("c");
         values.add("d");
-        Sorted.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        MapGenerator.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
@@ -44,14 +44,14 @@ public class SortedTest {
         values.add("b");
         values.add("c");
         values.add("d");
-        Sorted.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        MapGenerator.createMapOption1(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
     public void keysEqualsValuesException() {
         List<Integer> keys = Arrays.asList(1, 2, 3);
         List<String> values = Arrays.asList("a", "b", "c");
-        Sorted.createMapOption2(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
+        MapGenerator.createMapOption2(keys, values).forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class SortedTest {
         List<Integer> keys = Arrays.asList(1, 2);
         List<String> values = Arrays.asList("a", "b", "c");
         try {
-            Sorted.createMapOption2(keys, values);
+            MapGenerator.createMapOption2(keys, values);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class SortedTest {
         List<Integer> keys = Arrays.asList(1, 2, 3);
         List<String> values = Arrays.asList("a", "b");
         try {
-            Sorted.createMapOption2(keys, values);
+            MapGenerator.createMapOption2(keys, values);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Sorted {
+public class MapGenerator {
 
     public static <K, V> Map<K, V> createMapOption1(List<K> keys, List<V> values) {
         Map<K, V> map = new HashMap<>();
