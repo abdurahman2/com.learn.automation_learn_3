@@ -1,6 +1,7 @@
 package lambdastreams.task2;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -8,12 +9,16 @@ import java.util.stream.Collectors;
 
 public class Book {
 
-    private final String name;
-    private final Integer price;
+    private String name;
+    private Integer price;
 
     public Book(String name, Integer price) {
         this.name = name;
         this.price = price;
+    }
+
+    public Book(String name){
+        this.name = name;
     }
 
     public String getName() {
@@ -27,7 +32,8 @@ public class Book {
     public static List<Book> createListOfBooks(Integer booksQuantity) {
         List<Book> listOfBooks = new ArrayList<>();
         for (int i = 0; i < booksQuantity; i++) {
-            String randomBookName = RandomStringUtils.randomAlphabetic(3, 10);
+            String randomBookName = RandomStringUtils.randomAlphabetic(3, 10).toLowerCase(Locale.ROOT);
+            randomBookName = StringUtils.capitalize(randomBookName);
             Integer randomBookPrice = new Random().nextInt(100);
             Book book = new Book(randomBookName, randomBookPrice);
             listOfBooks.add(book);
@@ -50,7 +56,7 @@ public class Book {
     public static List<String> createListOfBooksContainsA(List<Book> listOfBooks) {
         return listOfBooks.stream()
                 .map(Book::getName)
-                .filter(name -> name.contains("A"))
+                .filter(name -> name.contains("A") | name.contains("a"))
                 .collect(Collectors.toList());
     }
 
@@ -63,8 +69,7 @@ public class Book {
     public static int totalOfBookNamesWith5Character(List<Book> listOfBooks) {
         return (int) listOfBooks.stream()
                 .map(Book::getName)
-                .mapToInt(String::length)
-                .filter(name -> name == 5)
+                .filter(name -> name.length() == 5)
                 .count();
     }
 
