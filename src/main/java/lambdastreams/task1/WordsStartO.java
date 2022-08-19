@@ -6,9 +6,8 @@ import java.util.stream.Collectors;
 
 public class WordsStartO {
     public static List<String> getWordsStartO(String text) {
-        List<String> result = Arrays.stream(text
+        return Arrays.stream(text
                         .split(" "))
                 .filter(text2 -> text2.toLowerCase().startsWith("o")).collect(Collectors.toList());
-        return result;
     }
 }

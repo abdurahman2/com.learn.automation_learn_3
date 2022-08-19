@@ -17,7 +17,7 @@ public class Book {
         this.price = price;
     }
 
-    public Book(String name){
+    public Book(String name) {
         this.name = name;
     }
 
@@ -56,7 +56,7 @@ public class Book {
     public static List<String> createListOfBooksContainsA(List<Book> listOfBooks) {
         return listOfBooks.stream()
                 .map(Book::getName)
-                .filter(name -> name.contains("A") | name.contains("a"))
+                .filter(name -> name.contains("A") || name.contains("a"))
                 .collect(Collectors.toList());
     }
 
