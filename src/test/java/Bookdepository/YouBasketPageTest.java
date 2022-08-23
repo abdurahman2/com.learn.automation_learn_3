@@ -21,11 +21,11 @@ public class YouBasketPageTest {
                 .openPage()
                 .searchBook("java")
                 .openDetailBookPage()
-                .openYourBasketPage()
-                .openYourBasketPage2()
-                .goToPaymentPage()
+                .clickAddToBaskedButton()
+                .clickOnBasketCheckoutButtonOnPopUp()
+                .clickOnCheckoutButtonOnBaskedPage()
                 .getPageName();
-        Assertions.assertEquals("Payment details", pageName);
+        Assertions.assertEquals("Payment details", pageName, "The payment page is not open");
     }
 
     @AfterEach

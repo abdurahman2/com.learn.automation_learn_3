@@ -22,18 +22,17 @@ public class ProductPage {
     @FindBy(xpath = "//h1[@itemprop='name']")
     WebElement bookName;
 
-    @FindBy(xpath = "/html/body/div[2]/div[5]/div/div/div[1]/div[1]/div[3]/div/div[2]/div/div[3]/span")
+    @FindBy(xpath = "//span[@class='sale-price']")
     WebElement bookPrice;
 
-    @FindBy(xpath = "/html/body/div[2]/div[5]/div/div/div[1]/div[1]/div[3]/div/div[3]/a[1]")
+    @FindBy(xpath = "//a[@class='btn btn-primary add-to-basket']")
     private WebElement addBookToBasketButton;
 
-    //Одинаково, когда что нужно использовать
     public void moveToYourBasketPage() {
         addBookToBasketButton.click();
     }
 
-    public YourBasketPage openYourBasketPage() {
+    public YourBasketPage clickAddToBaskedButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(addBookToBasketButton));
         addBookToBasketButton.click();

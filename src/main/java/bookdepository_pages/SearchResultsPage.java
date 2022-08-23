@@ -15,6 +15,7 @@ import java.util.List;
 public class SearchResultsPage {
     private final WebDriver driver;
     private String targetBook = "Effective Java";
+    private String allBookSearch = "//h3[@class='title']";
 
     public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
@@ -64,16 +65,22 @@ public class SearchResultsPage {
     }
 
     public ProductPage openDetailBookPageFromList() {
-        List<WebElement> elements = driver.findElements(By.xpath("//h3[@class='title']"));
+        List<WebElement> elements = driver.findElements(By.xpath(allBookSearch));
         System.out.println("нашли елементов - " + elements.size());
         for (WebElement name : elements) {
             if (name.getText().equals(targetBook)) {
                 name.click();
+                break;
             }
-            WebElement element = driver.findElement(By.xpath("//h1[@itemprop='name']"));
-            String text = element.getText();
-            System.out.println("My text " +text);
         }
+        return new ProductPage(driver);
+    }
+
+    public ProductPage openDetailBookPageFromList2() {
+        List<WebElement> elements = driver.findElements(By.xpath(allBookSearch));
+        elements.stream().filter(name -> targetBook.equals(name.getText()))
+//        elements.stream().filter(name -> name.getText().equals(targetBook))
+                .findFirst().ifPresent(WebElement::click);
         return new ProductPage(driver);
     }
 

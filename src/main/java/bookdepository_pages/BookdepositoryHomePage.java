@@ -23,7 +23,7 @@ public class BookdepositoryHomePage {
         return this;
     }
 
-        @FindBy(xpath = "//img[@alt='Bookdepository.com']")
+    @FindBy(xpath = "//img[@alt='Bookdepository.com']")
     private WebElement logo;
 
     @FindBy(xpath = "//*[@class='icon-user']")

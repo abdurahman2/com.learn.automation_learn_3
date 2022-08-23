@@ -39,14 +39,14 @@ public class YourBasketPage {
         return pageName.getText();
     }
 
-    public YourBasketPage openYourBasketPage2() {
+    public YourBasketPage clickOnBasketCheckoutButtonOnPopUp() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(basketCheckoutOnPopUpBasket));
         basketCheckoutOnPopUpBasket.click();
         return new YourBasketPage(driver);
     }
 
-    public PaymentPage goToPaymentPage() {
+    public PaymentPage clickOnCheckoutButtonOnBaskedPage() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(checkoutButton));
         checkoutButton.click();

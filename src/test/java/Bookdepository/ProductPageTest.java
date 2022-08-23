@@ -22,7 +22,7 @@ public class ProductPageTest {
                 .searchBook("java")
                 .openDetailBookPage()
                 .getBookName();
-        Assertions.assertEquals("Effective Java", bookName);
+        Assertions.assertEquals("Effective Java", bookName, "The page of another book is opened");
     }
 
     @Test
@@ -32,10 +32,10 @@ public class ProductPageTest {
                 .openPage()
                 .searchBook("java")
                 .openDetailBookPage()
-                .openYourBasketPage()
-                .openYourBasketPage2()
+                .clickAddToBaskedButton()
+                .clickOnBasketCheckoutButtonOnPopUp()
                 .getTitlePage();
-        Assertions.assertEquals("Your basket", pageName);
+        Assertions.assertEquals("Your basket", pageName, "The basket page is not open");
     }
 
     @AfterEach

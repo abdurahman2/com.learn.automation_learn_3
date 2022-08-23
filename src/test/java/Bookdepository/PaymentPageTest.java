@@ -12,7 +12,7 @@ public class PaymentPageTest {
     private WebDriver driver;
     private static final String SUBTOTAL = "31,91 €";
     private static final String DELIVERY = "FREE";
-    private static final String VAT = "00,00 €";
+    private static final String VAT = "0,00 €";
     private static final String TOTAL = "31,91 €";
 
     @BeforeEach
@@ -28,18 +28,18 @@ public class PaymentPageTest {
                 .openPage()
                 .searchBook("java")
                 .openDetailBookPage()
-                .openYourBasketPage()
-                .openYourBasketPage2()
-                .goToPaymentPage();
+                .clickAddToBaskedButton()
+                .clickOnBasketCheckoutButtonOnPopUp()
+                .clickOnCheckoutButtonOnBaskedPage();
     }
 
     @Test
-    @DisplayName("Check mandatory data")
+    @DisplayName("Check subtotal")
     public void checkDataFromPaymentPage() {
         PaymentPage paymentPage = moveToThePaymentPage();
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(paymentPage.getSubTotal()).isEqualTo("54.12 €");
-        Assertions.assertEquals(paymentPage.getSubTotal(), SUBTOTAL);
+        Assertions.assertEquals(paymentPage.getSubTotal(), SUBTOTAL, "Subtotal is not equal");
 
 
         softAssertions.assertThat(paymentPage.getSubTotal()).isEqualTo(SUBTOTAL);
@@ -51,6 +51,27 @@ public class PaymentPageTest {
         System.out.println(paymentPage.getDelivery());
         System.out.println(paymentPage.getVat());
         System.out.println(paymentPage.getTotal());
+    }
+
+    @Test
+    @DisplayName("Check delivery")
+    public void checkDeliveryPrice() {
+        PaymentPage paymentPage = moveToThePaymentPage();
+        Assertions.assertEquals(paymentPage.getDelivery(), DELIVERY, "Delivery is not equal");
+    }
+
+    @Test
+    @DisplayName("Check VAT")
+    public void checkVAT() {
+        PaymentPage paymentPage = moveToThePaymentPage();
+        Assertions.assertEquals(paymentPage.getVat(), VAT, "VAT is not equal");
+    }
+
+    @Test
+    @DisplayName("Check total")
+    public void checkTotalPrice() {
+        PaymentPage paymentPage = moveToThePaymentPage();
+        Assertions.assertEquals(paymentPage.getTotal(), TOTAL, "Total is not equal");
     }
 
     @AfterEach
