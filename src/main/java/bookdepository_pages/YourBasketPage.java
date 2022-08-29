@@ -29,6 +29,9 @@ public class YourBasketPage {
     @FindBy(xpath = "//*[@class='checkout-btn btn original-bucket']")
     private WebElement checkoutButton;
 
+    @FindBy(xpath = "//*[@class='item-total']")
+    private WebElement itemTotal;
+
     public String pageName() {
         return pageName.getText();
     }
@@ -51,5 +54,9 @@ public class YourBasketPage {
                 .until(ExpectedConditions.visibilityOf(checkoutButton));
         checkoutButton.click();
         return new PaymentPage(driver);
+    }
+
+    public String getItemTotal(){
+        return itemTotal.getText();
     }
 }

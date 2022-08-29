@@ -1,7 +1,8 @@
-package Bookdepository;
+package bookdepository;
 
 import bookdepository_pages.BookdepositoryHomePage;
 import bookdepository_pages.PaymentPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Before;
 import org.junit.jupiter.api.*;
@@ -10,13 +11,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PaymentPageTest {
     private WebDriver driver;
-    private static final String SUBTOTAL = "31,91 €";
+    private static final String SUBTOTAL = "34,98 €";
     private static final String DELIVERY = "FREE";
     private static final String VAT = "0,00 €";
-    private static final String TOTAL = "31,91 €";
+    private static final String TOTAL = "34,98 €";
 
     @BeforeEach
     public void browserSetup() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
@@ -27,7 +29,7 @@ public class PaymentPageTest {
         return new BookdepositoryHomePage(driver)
                 .openPage()
                 .searchBook("java")
-                .openDetailBookPage()
+                .openDetailBookPageFromList()
                 .clickAddToBaskedButton()
                 .clickOnBasketCheckoutButtonOnPopUp()
                 .clickOnCheckoutButtonOnBaskedPage();
@@ -38,19 +40,27 @@ public class PaymentPageTest {
     public void checkDataFromPaymentPage() {
         PaymentPage paymentPage = moveToThePaymentPage();
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(paymentPage.getSubTotal()).isEqualTo("54.12 €");
-        Assertions.assertEquals(paymentPage.getSubTotal(), SUBTOTAL, "Subtotal is not equal");
-
+        softAssertions.assertThat(paymentPage.getSubTotal()).as("Subtotal is not equal in softAssertions")
+                .isEqualTo("32,15 €");
+        softAssertions.assertThat(paymentPage.getDelivery()).as("Delivery is not equal in softAssertions")
+                .isEqualTo("FREE");
+        softAssertions.assertThat(paymentPage.getVat()).as("VAT is not equal in softAssertions")
+                .isEqualTo("0,00 €");
+        softAssertions.assertThat(paymentPage.getTotal()).as("Total is not equal in softAssertions")
+                .isEqualTo("32,15 €");
+        softAssertions.assertAll();
 
         softAssertions.assertThat(paymentPage.getSubTotal()).isEqualTo(SUBTOTAL);
         softAssertions.assertThat(paymentPage.getDelivery()).isEqualTo(DELIVERY);
         softAssertions.assertThat(paymentPage.getVat()).isEqualTo(VAT);
         softAssertions.assertThat(paymentPage.getTotal()).isEqualTo(DELIVERY);
+    }
 
-        System.out.println(paymentPage.getSubTotal());
-        System.out.println(paymentPage.getDelivery());
-        System.out.println(paymentPage.getVat());
-        System.out.println(paymentPage.getTotal());
+    @Test
+    @DisplayName("Check subtotal")
+    public void checkSubtotal(){
+        PaymentPage paymentPage = moveToThePaymentPage();
+        Assertions.assertEquals(paymentPage.getSubTotal(), SUBTOTAL, "Subtotal is not equal");
     }
 
     @Test

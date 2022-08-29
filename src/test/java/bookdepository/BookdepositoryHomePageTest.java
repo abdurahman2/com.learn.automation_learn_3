@@ -1,6 +1,7 @@
-package Bookdepository;
+package bookdepository;
 
 import bookdepository_pages.BookdepositoryHomePage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,12 +12,14 @@ class BookdepositoryHomePageTest {
 
     @BeforeEach
     public void browserSetup() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
     @Test
     @DisplayName("Sign in register button is present")
+    @RepeatedTest(2)
     void signInRegisterButtonIsVisible() {
         boolean signInRegisterButtonIsVisible = new BookdepositoryHomePage(driver)
                 .openPage()
@@ -24,6 +27,7 @@ class BookdepositoryHomePageTest {
         Assertions.assertTrue(signInRegisterButtonIsVisible, "The sign in register button is absent");
     }
 
+    @Tag("training")
     @Test
     @DisplayName("The icon is visible")
     void iconIsVisible() {
@@ -33,6 +37,7 @@ class BookdepositoryHomePageTest {
         Assertions.assertTrue(iconIsVisible, "The icon is absent");
     }
 
+    @Tag("work")
     @Test
     @DisplayName("Search field is visible")
     void searchFieldIsVisible() {

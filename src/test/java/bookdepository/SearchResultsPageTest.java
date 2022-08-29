@@ -1,10 +1,9 @@
-package Bookdepository;
+package bookdepository;
 
 import bookdepository_pages.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SearchResultsPageTest {
@@ -12,6 +11,7 @@ public class SearchResultsPageTest {
 
     @BeforeEach
     public void browserSetup() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
@@ -22,13 +22,14 @@ public class SearchResultsPageTest {
         String bookTitle = new BookdepositoryHomePage(driver)
                 .openPage()
                 .searchBook("java")
-                .openDetailBookPage()
+                .openDetailBookPage("Effective Java")
                 .getBookName();
         System.out.println(bookTitle);
         Assertions.assertEquals("Effective Java", bookTitle,
                 "The necessary page of the book is not open");
     }
 
+    @Tag("draft")
     @Test
     @DisplayName("Open the page of the necessary book from list")
     public void productPageIsOpenedFromList() {
@@ -37,10 +38,11 @@ public class SearchResultsPageTest {
                 .searchBook("java")
                 .openDetailBookPageFromList()
                 .getBookName();
-                Assertions.assertEquals("Effective Java", bookName,
+        Assertions.assertEquals("Effective Java", bookName,
                 "The necessary page of the book is not open from list");
     }
 
+    @Tag("draft")
     @Test
     @DisplayName("Book is added to the basket")
     public void bookIsAddedToTheBasket() {

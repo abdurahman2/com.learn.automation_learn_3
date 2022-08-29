@@ -48,43 +48,36 @@ public class BookdepositoryHomePage {
     private WebElement searchButtonMob;
 
     public Boolean presentLogo() {
-        openPage();
         return logo.isDisplayed();
     }
 
     public Boolean presentSignInRegister() {
-        openPage();
         return signInRegisterButton.isDisplayed();
     }
 
     public Boolean presentIcon() {
-        openPage();
         return icon.isDisplayed();
     }
 
     public Boolean presentSearchField() {
-        openPage();
         return searchField.isDisplayed();
     }
 
     public Boolean presentNavigationMenu() {
-        openPage();
         return navigationMenu.isDisplayed();
     }
 
     public Boolean presentBanner() {
-        openPage();
         return banner.isDisplayed();
     }
 
     public Boolean presentSearchButton() {
-        openPage();
         return searchButton.isDisplayed();
     }
 
     public SearchResultsPage searchBook(String name) {
         searchField.click();
-        searchField.sendKeys("java");
+        searchField.sendKeys(name);
         searchButton.click();
         return new SearchResultsPage(driver);
     }
