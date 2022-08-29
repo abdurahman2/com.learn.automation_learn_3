@@ -29,7 +29,10 @@ public class SearchResultsPage {
     private List<WebElement> generalSearchResult;
 
     @FindBy(xpath = "//img[@alt='Effective Java']")
-    private WebElement goToBookDetailPage;
+    private WebElement goToBookDetailPageImg;
+
+    @FindBy(xpath = "//*[@content=\"9780134685991\"]")
+    private WebElement goToBookDetailPageId;
 
     @FindBy(xpath = "//span[@data-item-count]")
     private WebElement itemCountInBasket;
@@ -50,17 +53,11 @@ public class SearchResultsPage {
         return generalSearchResult.size();
     }
 
-    public ProductPage navigateToBookPage() {
+    public ProductPage openDetailBookPage(String targetBook) {
+        By locator = By.xpath(String.format("//img[@alt='%s']", targetBook));
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(addToBasketButtonEffectiveJava));
-        addToBasketButtonEffectiveJava.click();
-        return new ProductPage(driver);
-    }
-
-    public ProductPage openDetailBookPage() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOf(goToBookDetailPage));
-        goToBookDetailPage.click();
+                .until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+        driver.findElement(locator).click();
         return new ProductPage(driver);
     }
 
@@ -85,10 +82,8 @@ public class SearchResultsPage {
     }
 
     public SearchResultsPage addBookEffectiveJavaToBasket() {
-        new BookdepositoryHomePage(driver)
-                .openPage()
-                .searchBook("java")
-                .addToBasketButtonEffectiveJava.click();
+        new BookdepositoryHomePage(driver);
+        addToBasketButtonEffectiveJava.click();
         return this;
     }
 

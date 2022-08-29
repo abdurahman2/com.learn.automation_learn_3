@@ -1,6 +1,7 @@
-package Bookdepository;
+package bookdepository;
 
 import bookdepository_pages.BookdepositoryHomePage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,19 +11,9 @@ public class ProductPageTest {
 
     @BeforeEach
     public void browserSetup() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-    }
-
-    @Test
-    @DisplayName("Open detail product page")
-    public void openDetailProductPage() {
-        String bookName = new BookdepositoryHomePage(driver)
-                .openPage()
-                .searchBook("java")
-                .openDetailBookPage()
-                .getBookName();
-        Assertions.assertEquals("Effective Java", bookName, "The page of another book is opened");
     }
 
     @Test
@@ -31,7 +22,7 @@ public class ProductPageTest {
         String pageName = new BookdepositoryHomePage(driver)
                 .openPage()
                 .searchBook("java")
-                .openDetailBookPage()
+                .openDetailBookPageFromList()
                 .clickAddToBaskedButton()
                 .clickOnBasketCheckoutButtonOnPopUp()
                 .getTitlePage();

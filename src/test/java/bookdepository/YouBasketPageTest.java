@@ -1,6 +1,7 @@
-package Bookdepository;
+package bookdepository;
 
 import bookdepository_pages.BookdepositoryHomePage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +11,7 @@ public class YouBasketPageTest {
 
     @BeforeEach
     public void browserSetup() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
@@ -20,7 +22,7 @@ public class YouBasketPageTest {
         String pageName = new BookdepositoryHomePage(driver)
                 .openPage()
                 .searchBook("java")
-                .openDetailBookPage()
+                .openDetailBookPageFromList()
                 .clickAddToBaskedButton()
                 .clickOnBasketCheckoutButtonOnPopUp()
                 .clickOnCheckoutButtonOnBaskedPage()
