@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 public class DeleteTest {
-    private final static String URL = "https://reqres.in/";
 
     @Test
     @DisplayName("Delete user")
-    void deleteUserTest() {
-        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec(204));
+    void deleteUser() {
+        Specifications.installSpecification(Specifications.requestSpec(Constants.BASE_URL), Specifications.responseSpec(204));
         given()
                 .when()
-                .delete("/api/users/12")
+                .pathParam("userID", 12)
+                .delete(Constants.USER_BY_ID)
                 .then().log().all();
     }
 }

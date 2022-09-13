@@ -9,13 +9,14 @@ public class PutTest {
 
     @Test
     @DisplayName("Update user")
-    void updateUserData() {
-        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK200());
+    void updateUserData2() {
+        Specifications.installSpecification(Specifications.requestSpec(Constants.BASE_URL), Specifications.responseSpecOK200());
         UserData userData = new UserData("Dima", "McKesson");
         UpdateUserData updateUserData = given()
                 .body(userData)
                 .when()
-                .put("api/users/2")
+                .pathParam("userID", 2)
+                .put(Constants.USER_BY_ID)
                 .then().log().all()
                 .extract().as(UpdateUserData.class);
         Assertions.assertEquals("Dima", updateUserData.getName(), "The name was not updated");
