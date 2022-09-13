@@ -75,7 +75,6 @@ class GetTest {
                 .extract().response();
     }
 
-    //не работает
     @Test
     @DisplayName("Get user 7")
     void getUserID7() {

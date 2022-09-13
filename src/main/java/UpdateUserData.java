@@ -1,4 +1,4 @@
-public class UpdateUserData extends UserData{
+public class UpdateUserData extends UserData {
     private String updatedAt;
 
     public UpdateUserData(String name, String job, String updatedAt) {
@@ -6,7 +6,7 @@ public class UpdateUserData extends UserData{
         this.updatedAt = updatedAt;
     }
 
-    public UpdateUserData(){
+    public UpdateUserData() {
     }
 
     public String getUpdatedAt() {

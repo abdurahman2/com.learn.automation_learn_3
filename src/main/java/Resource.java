@@ -56,4 +56,3 @@ public class Resource {
         this.pantone_value = pantone_value;
     }
 }
-

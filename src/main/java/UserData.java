@@ -59,4 +59,3 @@ public class UserData {
         return avatar;
     }
 }
-

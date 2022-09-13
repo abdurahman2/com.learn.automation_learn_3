@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 public class PutTest {
-    private final static String URL = "https://reqres.in/";
 
     @Test
     @DisplayName("Update user")

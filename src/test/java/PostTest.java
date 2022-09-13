@@ -33,7 +33,7 @@ class PostTest {
 
     @Test
     @DisplayName("Register a new user Hamcrest")
-    void registerNewUserSuccessHamcrest(){
+    void registerNewUserSuccessHamcrest() {
         Specifications.installSpecification(Specifications.requestSpec(Constants.BASE_URL), Specifications.responseSpecOK200());
         Map<String, String> user = new HashMap<>();
         user.put("email", "eve.holt@reqres.in");
